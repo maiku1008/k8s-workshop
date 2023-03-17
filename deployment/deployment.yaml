@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: webapp
+  name: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: webapp
+  template:
+    metadata:
+      labels:
+        run: webapp
+    spec:
+      containers:
+        - image: webapp-color:latest
+          name: webapp
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+      restartPolicy: Always
