@@ -1,23 +1,23 @@
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  labels:
-    run: webapp
-  name: webapp
+  name: webapp-stateful
 spec:
-  replicas: 1
   selector:
     matchLabels:
       run: webapp
+  serviceName: webapp
+  replicas: 3
+  minReadySeconds: 10
   template:
     metadata:
       labels:
         run: webapp
     spec:
       containers:
-        - image: webapp-color:v1
-          name: webapp
+        - name: webapp
+          image: webapp-color:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
@@ -26,4 +26,3 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
-      restartPolicy: Always

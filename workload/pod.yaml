@@ -14,6 +14,9 @@ spec:
         - containerPort: 8080
       args:
         - "--color"
-        - "blue2"
-      resources: {}
+        - "blue"
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
   restartPolicy: Always
