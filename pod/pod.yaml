@@ -7,7 +7,7 @@ metadata:
   name: webapp
 spec:
   containers:
-    - image: webapp-color:latest
+    - image: webapp-color:v1
       name: webapp
       imagePullPolicy: IfNotPresent
       ports:
