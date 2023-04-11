@@ -1,5 +1,7 @@
 # Kubernetes workshop
 
+[Slides](https://hackmd.io/@99XCjSrYT7Cjoc69wdmSeQ/r1uGxphyh)
+
 ## Requirements
 - Docker desktop with Kubernetes plugin
 - `kubectl`
